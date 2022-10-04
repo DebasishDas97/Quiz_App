@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f5f7fb;
+    background-image: url(http://react.humaizshahid.com/assets/bg.1ab70b02.png);
+    display: flex;
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-clip: content-box;
+    background-position: right 35% bottom 45%;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+}
+.start-section {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-heading {
+    margin-bottom: 20px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 37px;
+    text-align: center;
+    color: #293264;
+}
+
+.start-info {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #293264;
+}
+
+.blue-btn {
+    margin-top: 30px;
+    width: 193px;
+    height: 52px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    background: #4D5B9E;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.blue-btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.20),0 10px 70px 0 rgba(0,0,0,0.15);
+}
+
+.blob1 {
+    position: absolute;
+    width: 297px;
+    height: 235px;
+    left: 77%;
+    top: -1vh;
+    transform: rotate(5.49deg);
+}
+
+.blob2 {
+    position: absolute;
+    width: 297px;
+    height: 235px;
+    left: -149px;
+    top: 432px;
+
+}
+
+.quiz-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+}
+
+.question {
+    margin: 15px 0;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #293264;
+
+}
+
+.options {
+    margin: 8px;
+    background-color: transparent;
+    border:0.1px solid #293264;;
+    border-radius: 10px;
+    outline: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    color: #293264;;
+}
+
+.options:focus {
+    background: #D6DBF5;
+    outline: none;
+}
+
+.check-answer-btn {
+    margin: auto;
+}
