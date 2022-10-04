@@ -1,12 +1,8 @@
 import React, { useState } from "react"
-// import Start from "./Start"
 
 export default function Quiz(props) {
-    console.log(props)
     const [countCorrectAnswer, setCountCorrectAnswer] = useState(0)
     const [selectedId, setSelectedId] = useState([])
-    const [styles, setStyles] = useState({})
-
 
     function htmlDecode(input) {
         const doc = new DOMParser().parseFromString(input, "text/html")
@@ -21,7 +17,7 @@ export default function Quiz(props) {
             setCountCorrectAnswer(prevCountCorrectAnswer => prevCountCorrectAnswer + 1)
         }
     }
-    // console.log(styles)
+ 
     return (
         <div>
 
@@ -35,9 +31,6 @@ export default function Quiz(props) {
                             quiz.answers.map(answer => {
                                 return (
                                     <button className="options" onClick={() => handleClick(answer.id)} key={answer.id}
-                                    style={{
-                                        
-                                    }}
                                         id={answer.id} >{htmlDecode(answer.value)}
                                     </button>
                                 )
