@@ -11,7 +11,6 @@ export default function Quiz(props) {
 
     function handleClick(id) {
         setSelectedId(prevSelectedId => [...prevSelectedId, id])
-
         const option = props.quizElements.map(item => item.correctAnswerId)
         if (option.includes(id)) {
             setCountCorrectAnswer(prevCountCorrectAnswer => prevCountCorrectAnswer + 1)
@@ -20,7 +19,6 @@ export default function Quiz(props) {
  
     return (
         <div>
-
             <div className="quiz-section">
                 {props.quizElements.map(quiz => (
                     <div key={quiz.id}>
@@ -38,7 +36,6 @@ export default function Quiz(props) {
                         }
                         <hr />
                     </div>
-
                 ))}
 
                 <div className="check-answer-btn">
@@ -46,7 +43,6 @@ export default function Quiz(props) {
                     <button className="blue-btn" onClick={props.checkAnswers} >{!props.quizEnded ? "Check Answers" : "Play Again"} </button>
                 </div>
             </div>
-
         </div>
     )
 
