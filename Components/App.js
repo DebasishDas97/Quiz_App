@@ -38,7 +38,6 @@ export default function App() {
                 setQuizData(Data)
             }
             )
-
     }, [])
 
     function goToStartPage() {
@@ -47,7 +46,6 @@ export default function App() {
 
     function checkAnswers() {
         setQuizEnded(true)
-
         if (quizEnded) {
             setStartQuiz(false)
             setQuizEnded(false)
@@ -58,8 +56,7 @@ export default function App() {
         <div>
             {startQuiz ? <Quiz quizElements={quizData}
                 quizEnded={quizEnded}
-                checkAnswers={checkAnswers}
-            />
+                checkAnswers={checkAnswers} />
                 : <Start startQuiz={goToStartPage} />}
         </div>
     )
