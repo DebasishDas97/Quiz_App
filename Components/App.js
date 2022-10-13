@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import Start from "./Components/Start"
-import Quiz from "./Components/Quiz"
+import Start from "./Start"
+import Quiz from "./Quiz"
 import { nanoid } from "nanoid"
 
 export default function App() {
