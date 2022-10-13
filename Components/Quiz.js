@@ -9,9 +9,7 @@ export default function Quiz(props) {
         if (option.includes(id)) {
             setCountCorrectAnswer(prevCountCorrectAnswer => prevCountCorrectAnswer + 1)
         }
-        props.quizSetter(prevData => {
-           return prevData.map(item => item.id===quizId ? {...item, selectedAnswerId: id} : item)
-        })
+        props.quizSetter(prevData => prevData.map(item => item.id===quizId ? {...item, selectedAnswerId: id} : item))
     }
     
     function getMyClass(selectedId, correctId, answerId) {
