@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react"
-import Start from "./Start"
-import Quiz from "./Quiz"
+import Start from "./Components/Start"
+import Quiz from "./Components/Quiz"
 import { nanoid } from "nanoid"
+
+function htmlDecode(input) {
+    const doc = new DOMParser().parseFromString(input, "text/html")
+    return doc.documentElement.textContent;
+}
 
 export default function App() {
     const [quizData, setQuizData] = useState([])
     const [startQuiz, setStartQuiz] = useState(false)
-    const[refreshData, setRefreshData] = useState(true)
+    const [refreshData, setRefreshData] = useState(true)
 
     useEffect(() => {
-        console.log("Effect rendered")
         fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=medium")
             .then(response => response.json())
             .then(respData => {
@@ -24,22 +28,18 @@ export default function App() {
                         value: item,
                     }))
                     options.push(correctAnswer)
-                    options.sort(() => Math.random() - 0.5)
-                    
+                    htmlDecode(options.sort(() => Math.random() - 0.5))
+
                     const questions = {
                         id: nanoid(),
-                        question: question.question,
+                        question: htmlDecode(question.question),
                         answers: options,
                         correctAnswerId: correctAnswer.id,
                         selectedAnswerId: null,
                     }
                     return questions
                 })
-                function htmlDecode(input) {
-        const doc = new DOMParser().parseFromString(input, "text/html")
-        return doc.documentElement.textContent;
-    }
-                htmlDecode(setQuizData(Data))
+                setQuizData(Data)
             }
             )
     }, [refreshData])
@@ -47,17 +47,17 @@ export default function App() {
     function goToStartPage() {
         setStartQuiz(true)
     }
-    
-    function restartQuiz(){
+
+    function restartQuiz() {
         setRefreshData(prevRef => !prevRef)
-    }        
+    }
 
     return (
         <div>
-            {startQuiz ? <Quiz quizElements={quizData} 
-            quizSetter={setQuizData} 
-            restartQuiz={restartQuiz}
-              onClicked={() => setStartQuiz(false)}/>
+            {startQuiz ? <Quiz quizElements={quizData}
+                quizSetter={setQuizData}
+                restartQuiz={restartQuiz}
+                onClicked={() => setStartQuiz(false)} />
                 : <Start startQuiz={goToStartPage} />}
         </div>
     )
